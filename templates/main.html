@@ -3,8 +3,7 @@
 <head>
     <meta charset = "utf-8">
     <title>Julian Callin</title>
-    <meta name="viewport" content="width=device-width,
-    initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
@@ -46,102 +45,95 @@
         </div><!--End Container-->
     </nav><!--End Navbar-->
 
-    <div id="mainpage">
+    <div class="stars" id="background">
+        <div id="ShootingStarParams"></div>
+        <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="static/js/ShootingStarClass.js"></script>
+        <script type="text/javascript">
+          $( document ).ready( function(){
+            var shootingStarObj = new ShootingStar( "body" );
+                shootingStarObj.launch();
+          });
+        </script>
+    </div>
 
-        <div class="stars" id="background">
-            <div id="ShootingStarParams"></div>
-            <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
-            <script type="text/javascript" src="static/js/ShootingStarClass.js"></script>
-            <script type="text/javascript">
-              $( document ).ready( function(){
-                var shootingStarObj = new ShootingStar( "body" );
-                    shootingStarObj.launch();
-              });
-            </script>
-        </div>
+    <div id="foreground">
+        <div class="container">
+            <div id="photos">
 
-        <div id="foreground">
-            <div class="container">
-                <section id="photos">
+                <div class="page-header well">
+                    <h3>I'm a programmer with a love for the outdoors. Click through some photos or scroll down to learn more about me</h3>
+                </div>
 
-                    <div class="page-header">
-                        <h3>I'm a programmer with a love for the outdoors. Click through some photos or scroll down to learn more about me</h3>
-                    </div>
+                <div class="carousel slide" id="screenshot-carousel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#screenshot-carousel" data-slide-to="1"></li>
+                    </ol>
 
-                    <div class="carousel slide" id="screenshot-carousel" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#screenshot-carousel" data-slide-to="1"></li>
-                        </ol>
-
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="img-responsive center-block" src="static/nm_sunset_full.jpg" alt="New Mexico Sky">
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive center-block" src="static/fishing_full.jpg" alt="New Mexico Sky" align="center">
-                            </div>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-responsive center-block" src="static/nm_sunset_full.jpg" alt="New Mexico Sky">
                         </div>
-
-                        <a href="#screenshot-carousel" class="left carousel-control" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
-
-                    </div>
-                </section>
-            </div>
-
-            <br>
-            <!--End Photos section-->
-
-            <div class="container">
-                <div class="well">
-                <section>
-                    <div class="page-header" id="projects">
-                        <h2>Projects</h2>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>Bronco Hack 2016: ESEMES</h3>
-                            <p>Our team of 5 programmers and 1 business student took first place for
-                            ESEMES, a web application written in Python which enables people to receive web information
-                            such as directions, Yelp suggestions, and wikipedia searches through text message.
-                            </p>
+                        <div class="item">
+                            <img class="img-responsive center-block" src="static/fishing_full.jpg" alt="New Mexico Sky" align="center">
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="github-card" data-github="jcallin/esemes" data-theme="default">
-                            </div>
-                            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-                        </div>
+                    <a href="#screenshot-carousel" class="left carousel-control" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
 
-                        <div class="col-md-4">
-                            <div class="thumbnail" id="broncohack1">
-                                <img src="static/bronco_hack1.jpg" alt="Bronco Hack 2016">
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-4">
-                            <div class="thumbnail" id="broncohack2">
-                                <img src="static/bronco_hack2.jpg" alt="Bronco Hack 2016">
-                            </div>
-                        </div>
-
-                    </div>
-
-                </section>
                 </div>
             </div>
         </div>
+        <br>
+        <!--End Photos section-->
+        <div class="container">
+            <div class="well" id="projects-section">
+                <div class="page-header" id="projects-header">
+                    <h2>Projects</h2>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Bronco Hack 2016: ESEMES</h3>
+                        <p>Our team of 5 programmers and 1 business student took first place for
+                        ESEMES, a web application written in Python which enables people to receive web information
+                        such as directions, Yelp suggestions, and wikipedia searches through text message.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="github-card" data-github="jcallin/esemes" data-theme="default">
+                        </div>
+                        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="thumbnail" id="broncohack1">
+                            <img src="static/bronco_hack1.jpg" alt="Bronco Hack 2016">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="thumbnail" id="broncohack2">
+                            <img src="static/bronco_hack2.jpg" alt="Bronco Hack 2016">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--End Projects section-->
     </div>
+
     <!--Javascript and JQuery-->
     <script src="static/js/jquery-1.12.3.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
