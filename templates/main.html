@@ -16,13 +16,6 @@
 
 <body>
 
- <!--Pad the navbar away from the rest of the site-->
-    <style>
-        body{
-            padding-top: 40px;
-            }
-    </style>
-
     <!--Navbar-->
     <nav class="navbar navbar-default navbar-fixed-top" id="my-navbar">
         <div class="container">
@@ -38,7 +31,7 @@
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                <li><a href="#projects">Projects</a>
+                <li><a href="#projects-section">Projects</a>
                 <li><a href="#photos">Photos</a>
                 </ul>
             </div>
@@ -48,14 +41,14 @@
     <div class="stars" id="background">
         <div id="ShootingStarParams"></div>
         <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="static/js/ShootingStarClass.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/ShootingStarClass.js') }}"></script>
         <script type="text/javascript">
           $( document ).ready( function(){
             var shootingStarObj = new ShootingStar( "body" );
                 shootingStarObj.launch();
           });
         </script>
-    </div>
+    </div><!--End Shooting star background-->
 
     <div id="foreground">
         <div class="container">
@@ -93,50 +86,49 @@
         <br>
         <!--End Photos section-->
         <div class="container">
-            <div class="well" id="projects-section">
-                <div class="page-header" id="projects-header">
+            <div class="well" id="projects-well">
+                <span class="page-header" id="projects-header">
                     <h2>Projects</h2>
-                </div>
-
+                </span>
+                <hr>
                 <div class="row">
                     <div class="col-md-12">
                         <h3>Bronco Hack 2016: ESEMES</h3>
                         <p>Our team of 5 programmers and 1 business student took first place for
                         ESEMES, a web application written in Python which enables people to receive web information
-                        such as directions, Yelp suggestions, and wikipedia searches through text message.
+                        such as directions, Yelp suggestions, and wikipedia searches through text message. Our application
+                            was aimed to service communities with restricted access to cellular data or people who could
+                            not afford to buy data plans.
                         </p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="github-card" data-github="jcallin/esemes" data-theme="default">
+                        <div class="github-card" data-github="jcallin/esemes" data-theme="default" id="jcallin-github-card">
                         </div>
                         <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="thumbnail" id="broncohack1">
-                            <img src="static/bronco_hack1.jpg" alt="Bronco Hack 2016">
-                        </div>
-                    </div>
+                    {% for subject in content_dict["pictures"] %}
+                        {% for picture in subject["broncohack"] %}
+                            <div class="col-md-4">
+                                <div class="thumbnail" id="{{ picture['id'] }}">
+                                    <img src=" {{ picture['src'] }} " alt="{{ picture['alt'] }}">
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
 
-
-                    <div class="col-md-4">
-                        <div class="thumbnail" id="broncohack2">
-                            <img src="static/bronco_hack2.jpg" alt="Bronco Hack 2016">
-                        </div>
-                    </div>
                 </div>
-            </div>
+
             </div>
         </div>
-        <!--End Projects section-->
     </div>
+    <!--End Projects section-->
 
     <!--Javascript and JQuery-->
-    <script src="static/js/jquery-1.12.3.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
-
+    <script src="{{ url_for('static', filename='js/jquery-1.12.3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body>
 </html>
