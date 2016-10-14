@@ -50,7 +50,6 @@
       opacity: 0
     }, 75);
     if (this.m >= this.options.beamSize) {
-      $("#ShootingStarParams").fadeOut("slow");
     }
   }
 
@@ -113,7 +112,7 @@
 
   ShootingStar.prototype.launch = function(everyTime) {
     if (this.toType(everyTime) != "number") {
-      everyTime = 1;
+      everyTime = 3;
     }
     everyTime = everyTime * 1000;
     this.launchStar();
